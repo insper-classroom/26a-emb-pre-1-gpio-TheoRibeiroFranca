@@ -8,7 +8,9 @@ void foo(void) {
 }
 
 void main(void) {
-    while (1) {
+    int a = 0;
+    int b = 0;
+    while (b < 2) {
         foo();
         
         if (a > 5) {
