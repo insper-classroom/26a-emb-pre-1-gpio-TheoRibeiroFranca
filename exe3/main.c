@@ -23,13 +23,19 @@ int main() {
   gpio_pull_up(BTN_VERDE);
 
   while (true) {
-    while(!gpio_get(BTN_VERMELHO)) {
+    if (gpio_get(BTN_VERMELHO) == 0) {
       gpio_put(LED_VERMELHO, 1);
+      while(!gpio_get(BTN_VERMELHO)) {
+        gpio_put(LED_VERMELHO, 1);
+      }
+      gpio_put(LED_VERMELHO, 0);
     }
-    gpio_put(LED_VERMELHO, 0);
-    while(!gpio_get(BTN_VERDE)) {
+    if (gpio_get(BTN_VERDE) == 0) {
       gpio_put(LED_VERDE, 1);
+      while(!gpio_get(BTN_VERDE)) {
+        gpio_put(LED_VERDE, 1);
+      }
+      gpio_put(LED_VERDE, 0);
     }
-    gpio_put(LED_VERDE, 0);
   }
 }
