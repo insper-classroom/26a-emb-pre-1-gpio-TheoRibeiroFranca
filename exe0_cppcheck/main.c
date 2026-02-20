@@ -20,5 +20,5 @@ int main(void) {
         arr[i] = result;
     }
 
-    return 0;
+    return multiplyNumbers(arr[0], arr[1]);
 }
